@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Отдельный товар</title>{% endblock %}
+
+{% block content %}
+    <div>
+        <p>Название: {{product.name}}</p>
+        <p>Описание: {{product.desc}}</p>
+        <img class="img" src="/media/{{ product.photo }}">
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input style="margin-top: 10px" type="submit" value="Заказать">
+    </form>
+{% endblock %}

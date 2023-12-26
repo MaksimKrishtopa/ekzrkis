@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Товары</title>{% endblock %}
+
+{% block content %}
+    <h1>Товары</h1>
+    <h3>Наши товары:</h3>
+    <form method="get" action="{% url 'services' %}">
+    {{ search_form }}
+    <button style="margin-top: 10px" type="submit">Искать</button>
+    </form>
+
+    {% for product in products %}
+        <div>
+            <p>Название: {{product.name}}</p>
+            <p>Описание: {{product.desc}}</p>
+            <img class="img" src="/media/{{ product.photo }}">
+            <p><a href="{% url 'services-detail' product.id %}">Перейти к товару</a></p>
+        </div>
+        {% if not forloop.last %}<p>-----------------------------------------------------------</p>{% endif %}
+    {% endfor %}
+{% endblock %}
