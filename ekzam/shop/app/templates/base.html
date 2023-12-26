@@ -6,8 +6,105 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'app/style.css' %}"/>
 </head>
+<style>
+
+    body {
+
+    }
+
+    a, a:link, a:visited  {
+        text-decoration: none;
+    }
+
+    a:hover  {
+        text-decoration: none;
+    }
+
+    * {
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    header {
+        background: #686868;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    div {
+        padding-left: 20px;
+    }
+
+    header>nav>ul {
+        display: flex;
+        gap: 20px;
+
+    }
+
+    li {
+        list-style: none;
+    }
+
+    header>nav>ul>li>a {
+        color: white;
+        text-transform: uppercase;
+    }
+
+    header>div {
+        font-size: 36px;
+        background-color: darkgoldenrod;
+    }
+
+    header>div>p {
+        font-size: 36px;
+        color: white;
+        text-transform: uppercase;
+        padding: 10px;
+    }
+
+    img {
+        padding: 10px;
+    }
+
+    input {
+        border: 2px solid darkgoldenrod;
+        background-color: transparent;
+        margin: 5px;
+    }
+
+
+    h1,h2,h3,h4,h5,h6 {
+        color: #686868;
+    }
+
+    div>a, div>p>a {
+        color: darkgoldenrod;
+    }
+
+    button {
+        background: transparent;
+        border-radius: 15%;
+        padding: 5px;
+        color: darkgoldenrod;
+        border: 1px solid darkgoldenrod;
+    }
+
+
+
+
+</style>
 <body>
   <header>
+
     <nav>
       <ul>
         <li><a href="{% url 'main' %}">Главная</a></li>
@@ -21,9 +118,11 @@
         {% else %}
           <li><a href="{% url 'register' %}">Регистрация</a></li>
           <li><a href="{% url 'login' %}">Вход</a></li>
+
         {% endif %}
       </ul>
     </nav>
+      <div class="logo"><p>Онлайн магазин качественных продуктов</p></div>
   </header>
   <div>{% block content %}{% endblock %}</div>
 </body>
